@@ -1,5 +1,5 @@
 #Base Image node:12.18.4-alpine
-FROM node:12.18.4-alpine
+FROM --platform=linux/amd64 node:12.18.4-alpine
 
 
 #Set working directory to /app
