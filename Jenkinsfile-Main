@@ -33,7 +33,8 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build "${Image_RepoName}:${IMAGE_TAG}"
+          sh 'docker build -t docker-nodejs-app .'
+	  sh 'docker tag docker-nodejs-app:latest 830593017048.dkr.ecr.us-east-1.amazonaws.com/docker-nodejs-app:latest'
         }
       }
     }
