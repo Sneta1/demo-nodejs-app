@@ -42,7 +42,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-			docker.withRegistry("https://" + REPOSITORY_URI + aws-admin-cred) {
+			docker.withRegistry("https://" + REPOSITORY_URI, 'aws-admin-cred') {
                     	dockerImage.push()
                 	}
          }
