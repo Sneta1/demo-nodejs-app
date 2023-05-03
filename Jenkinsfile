@@ -42,7 +42,7 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-			docker.withRegistry("https://" + REPOSITORY_URI, "ecr:${AWS_DEFAULT_REGION}:" + registryCredential) {
+			docker.withRegistry("https://" + REPOSITORY_URI) {
                     	dockerImage.push()
                 	}
          }
@@ -51,7 +51,7 @@ pipeline {
       
     stage('Deploy') {
      steps{
-            withAWS(credentials: 'aws-admin-cred', region: "${AWS_DEFAULT_REGION}") {
+            withAWS(credentials: 'aws-admin-cred') {
                 script {
 			sh './script.sh'
                 }
