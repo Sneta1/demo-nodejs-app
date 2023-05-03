@@ -42,8 +42,6 @@ pipeline {
     stage('Pushing to ECR') {
      steps{  
          script {
-             sh 'docker build -t docker-nodejs-app .'
-             sh 'docker tag docker-nodejs-app:latest 830593017048.dkr.ecr.us-east-1.amazonaws.com/docker-nodejs-app:latest'
              sh 'docker push 830593017048.dkr.ecr.us-east-1.amazonaws.com/docker-nodejs-app:latest'
          }
         }
