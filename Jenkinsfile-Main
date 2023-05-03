@@ -47,17 +47,6 @@ pipeline {
              sh 'docker push 830593017048.dkr.ecr.us-east-1.amazonaws.com/docker-nodejs-app:latest'
          }
         }
-      }
-      
-    /*stage('Deploy') {
-     steps{
-            withAWS(credentials: 'aws-admin-cred') {
-                script {
-			sh './script.sh'
-                }*/
-            } 
-        }
-      }      
-      
+      }    
     }
 }
